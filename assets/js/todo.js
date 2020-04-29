@@ -34,5 +34,11 @@ data.forEach((task) => {
     }
   });
 
+  document.querySelector("#new-task").addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+      console.log(e.target.value);
+    }
+  });
+
   document.querySelector(".todo").append(li);
 });
