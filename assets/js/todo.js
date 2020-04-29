@@ -15,12 +15,15 @@ function renderTodo() {
 
     li.querySelector("input").addEventListener("change", (e) => {
       if (e.target.checked) {
+        //  Adiciona a classe CSS no HTML
         li.classList.add("complete");
       } else {
+        //  Adiciona a classe CSS no HTML
         li.classList.remove("complete");
       }
     });
 
+    // Adiciona o elemento no final da lista
     document.querySelector(".todo").append(li);
   });
 }
