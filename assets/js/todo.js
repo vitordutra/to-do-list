@@ -1,44 +1,48 @@
 // Array de JSON
-let data = [
-  {
-    id: 1,
-    title: "Estudar HTML",
-  },
-  {
-    id: 2,
-    title: "Estudar CSS",
-  },
-  {
-    id: 3,
-    title: "Estudar JavaScript",
-  },
-  {
-    id: 4,
-    title: "Estudar PHP 7",
-  },
-];
+let data = [];
+function renderTodo() {
+  // Limpa a Lista
+  // Bug evitado: Escrever todos os itens da lista de novo
+  document.querySelector(".todo").innerHTML = "";
 
-data.forEach((task) => {
-  let li = document.createElement("li");
+  data.forEach((task) => {
+    let li = document.createElement("li");
 
-  li.innerHTML = `
+    li.innerHTML = `
   <input type="checkbox" id="task-${task.id}" />
   <label for="task-${task.id}">${task.title}</label>
   `;
 
-  li.querySelector("input").addEventListener("change", (e) => {
-    if (e.target.checked) {
-      li.classList.add("complete");
-    } else {
-      li.classList.remove("complete");
-    }
-  });
+    li.querySelector("input").addEventListener("change", (e) => {
+      if (e.target.checked) {
+        li.classList.add("complete");
+      } else {
+        li.classList.remove("complete");
+      }
+    });
 
-  document.querySelector("#new-task").addEventListener("keyup", (e) => {
-    if (e.key === "Enter") {
-      console.log(e.target.value);
-    }
+    document.querySelector(".todo").append(li);
   });
+}
 
-  document.querySelector(".todo").append(li);
+/*
+1. Insere o input
+2. Limpa o Input
+3. Redesenha a Lista
+*/
+document.querySelector("#new-task").addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    console.log(e.target.value);
+    // Adiciona Elemento ao Array
+    data.push({
+      id: data.length + 1,
+      title: e.target.value,
+    });
+    // Limpa o Input
+    e.target.value = "";
+
+    renderTodo();
+  }
 });
+
+renderTodo();
