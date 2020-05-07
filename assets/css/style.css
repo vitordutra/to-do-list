@@ -152,6 +152,13 @@ footer a:visited {
   cursor: not-allowed;
 }
 
+.todo button {
+  width: initial;
+  color: white;
+  float: right;
+  min-width: 35px;
+}
+
 #new-task {
   width: 100%;
   padding: 10px;
