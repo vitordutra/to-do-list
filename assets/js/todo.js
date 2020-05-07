@@ -35,7 +35,6 @@ function renderTodo() {
 */
 document.querySelector("#new-task").addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
-    console.log(e.target.value);
     // Adiciona Elemento ao Array
     data.push({
       id: data.length + 1,
