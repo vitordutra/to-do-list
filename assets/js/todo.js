@@ -31,10 +31,13 @@ function renderTodo() {
       let id = input.id;
       let idArray = id.split("-");
       let todoId = idArray[1];
+      let title = li.querySelector("label").innerText;
 
-      data = data.filter((task) => task.id !== parseInt(todoId));
+      if (confirm(`Deseja realmente excluir a tarefa ${title}?`)) {
+        data = data.filter((task) => task.id !== parseInt(todoId));
 
-      renderTodo();
+        renderTodo();
+      }
     };
 
     // função para deletar o item da lista
