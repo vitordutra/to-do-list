@@ -24,8 +24,7 @@ function renderTodo() {
       }
     });
 
-    // função para deletar o item da lista
-    li.querySelector("button").addEventListener("click", (e) => {
+    deleteItemFromList = (e) => {
       let button = e.target;
       let li = button.parentNode;
       let input = li.querySelector("input");
@@ -36,7 +35,10 @@ function renderTodo() {
       data = data.filter((task) => task.id !== parseInt(todoId));
 
       renderTodo();
-    });
+    };
+
+    // função para deletar o item da lista
+    li.querySelector("button").addEventListener("click", deleteItemFromList);
 
     // Adiciona o elemento no final da lista
     document.querySelector(".todo").append(li);
